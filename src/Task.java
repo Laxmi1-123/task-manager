@@ -21,4 +21,3 @@ public class Task {
     public void setTitle(String t) { this.title = t; }
     public void markDone() { done = true; }
 }
-
