@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,21 +9,48 @@ class TaskServiceModifyTest {
     void setup() {
         service = new TaskService();
         service.addTask(new Task(1,"Test",1));
+        service.addTask(new Task(2,"Second",2));
     }
 
+    // ---------------- UPDATE TESTS ----------------
+
     @Test
-    void shouldUpdateTitle() {
-        service.updateTitle(1,"Updated");
+    void shouldUpdateTitleSuccessfully() {
+        boolean result = service.updateTitle(1,"Updated");
+        assertTrue(result);
         assertEquals("Updated", service.getTask(1).getTitle());
     }
 
     @Test
-    void shouldDeleteTask() {
-        assertTrue(service.deleteTask(1));
+    void updateNonExistingTaskShouldReturnFalse() {
+        boolean result = service.updateTitle(99,"NewTitle");
+        assertFalse(result);
     }
 
     @Test
-    void deleteMissingShouldFail() {
-        assertFalse(service.deleteTask(99));
+    void updateWithEmptyTitleShouldThrowException() {
+        assertThrows(IllegalArgumentException.class,
+                () -> service.updateTitle(1,""));
+    }
+
+    // ---------------- DELETE TESTS ----------------
+
+    @Test
+    void shouldDeleteTaskSuccessfully() {
+        boolean result = service.deleteTask(1);
+        assertTrue(result);
+        assertNull(service.getTask(1));
+    }
+
+    @Test
+    void deleteAlreadyDeletedTaskShouldReturnFalse() {
+        service.deleteTask(1);
+        boolean result = service.deleteTask(1);
+        assertFalse(result);
+    }
+
+    @Test
+    void deleteNonExistingTaskShouldReturnFalse() {
+        assertFalse(service.deleteTask(100));
     }
 }
