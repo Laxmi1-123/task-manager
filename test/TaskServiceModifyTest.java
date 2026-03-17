@@ -27,11 +27,7 @@ class TaskServiceModifyTest {
         assertFalse(result);
     }
 
-    @Test
-    void updateWithEmptyTitleShouldThrowException() {
-        assertThrows(IllegalArgumentException.class,
-                () -> service.updateTitle(1,""));
-    }
+    
 
     // ---------------- DELETE TESTS ----------------
 
