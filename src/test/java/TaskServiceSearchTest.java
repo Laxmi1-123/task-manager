@@ -1,8 +1,8 @@
-package test.java;
+
 import org.junit.jupiter.api.*;
 
-import main.java.Task;
-import main.java.TaskService;
+import taskManager.Task;
+import taskManager.TaskService;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
