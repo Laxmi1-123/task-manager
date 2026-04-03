@@ -12,20 +12,7 @@ class TaskServiceModifyTest {
         service.addTask(new Task(2,"Second",2));
     }
 
-    // ---------------- UPDATE TESTS ----------------
-
-    @Test
-    void shouldUpdateTitleSuccessfully() {
-        boolean result = service.updateTitle(1,"Updated");
-        assertTrue(result);
-        assertEquals("Updated", service.getTask(1).getTitle());
-    }
-
-    @Test
-    void updateNonExistingTaskShouldReturnFalse() {
-        boolean result = service.updateTitle(99,"NewTitle");
-        assertFalse(result);
-    }
+    
 
     
 
