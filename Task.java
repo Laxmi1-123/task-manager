@@ -1,0 +1,43 @@
+public class Task {
+
+    private int id;
+    private String title;
+    private boolean done;
+    private int priority;
+
+    public Task(int id, String title, int priority) {
+
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title required");
+        }
+
+        this.id = id;
+        this.title = title;
+        this.priority = priority;
+        this.done = false; // default = pending
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void markDone() {
+        this.done = true;
+    }
+}
