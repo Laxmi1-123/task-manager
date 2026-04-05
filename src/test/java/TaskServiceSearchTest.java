@@ -1,4 +1,9 @@
 
+public class TaskServiceSearchTest {
+
+}
+
+
 import org.junit.jupiter.api.*;
 
 import taskManager.Task;
@@ -47,3 +52,4 @@ class TaskServiceSearchTest {
         assertEquals(1, completed.size());
     }
 }
+
