@@ -1,4 +1,4 @@
-
+package taskManager;
 import java.util.*;
 
 public class TaskService {
@@ -89,23 +89,4 @@ public class TaskService {
 
         return completed;
     }
-
-    // Update full task (needed for BasicTest)
-    public boolean updateTask(Task updatedTask) {
-
-    if (updatedTask == null) {
-        throw new NullPointerException("Task cannot be null");
-    }
-
-    Task existing = tasks.get(updatedTask.getId());
-
-    if (existing == null) {
-        return false;
-    }
-
-    existing.setTitle(updatedTask.getTitle());
-    existing.setPriority(updatedTask.getPriority());
-
-    return true;
-}
 }
